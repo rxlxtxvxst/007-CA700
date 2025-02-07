@@ -1,3 +1,4 @@
+/* Fullscreen Video */
 #intro-video {
     position: fixed;
     top: 0;
@@ -8,9 +9,70 @@
     z-index: -1;
 }
 
-@media screen and (max-width: 2360px) and (max-height: 1640px) {
-    #intro-video {
-        width: 2360px;
-        height: 1640px;
-    }
+/* Hide elements initially */
+.hidden {
+    display: none;
+}
+
+/* Start Screen */
+#start-screen {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+}
+
+#start-screen h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#start-screen button {
+    display: block;
+    width: 200px;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+/* Joystick Controls */
+#joystick-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+}
+
+#joystick {
+    width: 50px;
+    height: 50px;
+    background: gray;
+    border-radius: 50%;
+    position: relative;
+    top: 25px;
+    left: 25px;
+}
+
+/* A Button */
+#a-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    font-size: 1.5em;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
 }
