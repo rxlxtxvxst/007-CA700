@@ -1,13 +1,9 @@
-document.addEventListener("DOMContentLoaded", function () {
-    let video = document.getElementById("intro-video");
-
-    video.addEventListener("ended", function () {
-        video.style.display = "none";
-    });
-
-   
-    video.play().catch(() => {
-        video.muted = true;
-        video.play();
-    });
-});
+#intro-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
