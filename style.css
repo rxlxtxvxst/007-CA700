@@ -1,46 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     let video = document.getElementById("intro-video");
-    let startScreen = document.getElementById("start-screen");
-    let newGameBtn = document.getElementById("new-game");
-    let optionsBtn = document.getElementById("options");
 
-    // Show Start Screen After Video Ends
     video.addEventListener("ended", function () {
-        video.style.display = "none";
-        startScreen.classList.remove("hidden");
-    });
-
-    // New Game Button Clicked
-    newGameBtn.addEventListener("click", function () {
-        alert("Game Starting... (Load game here)");
-    });
-
-    // Options Button Clicked
-    optionsBtn.addEventListener("click", function () {
-        alert("Options Menu (Coming Soon)");
-    });
-
-    // Joystick Controls
-    let joystick = document.getElementById("joystick");
-    let joystickContainer = document.getElementById("joystick-container");
-
-    joystickContainer.addEventListener("touchmove", function (event) {
-        let touch = event.touches[0];
-        let rect = joystickContainer.getBoundingClientRect();
-        let x = touch.clientX - rect.left - joystick.clientWidth / 2;
-        let y = touch.clientY - rect.top - joystick.clientHeight / 2;
-
-        joystick.style.transform = `translate(${x}px, ${y}px)`;
-    });
-
-    joystickContainer.addEventListener("touchend", function () {
-        joystick.style.transform = `translate(25px, 25px)`;
-    });
-
-    // A Button Clicked
-    let aButton = document.getElementById("a-button");
-
-    aButton.addEventListener("click", function () {
-        alert("A Button Pressed!");
+        video.style.display = "none"; // Hides video after it finishes
     });
 });
