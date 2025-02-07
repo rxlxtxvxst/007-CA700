@@ -1,78 +1,46 @@
-/* Fullscreen Video */
-#intro-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -1;
-}
+document.addEventListener("DOMContentLoaded", function () {
+    let video = document.getElementById("intro-video");
+    let startScreen = document.getElementById("start-screen");
+    let newGameBtn = document.getElementById("new-game");
+    let optionsBtn = document.getElementById("options");
 
-/* Hide elements initially */
-.hidden {
-    display: none;
-}
+    // Show Start Screen After Video Ends
+    video.addEventListener("ended", function () {
+        video.style.display = "none";
+        startScreen.classList.remove("hidden");
+    });
 
-/* Start Screen */
-#start-screen {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-    color: white;
-}
+    // New Game Button Clicked
+    newGameBtn.addEventListener("click", function () {
+        alert("Game Starting... (Load game here)");
+    });
 
-#start-screen h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-}
+    // Options Button Clicked
+    optionsBtn.addEventListener("click", function () {
+        alert("Options Menu (Coming Soon)");
+    });
 
-#start-screen button {
-    display: block;
-    width: 200px;
-    margin: 10px auto;
-    padding: 10px;
-    font-size: 1.2em;
-    cursor: pointer;
-}
+    // Joystick Controls
+    let joystick = document.getElementById("joystick");
+    let joystickContainer = document.getElementById("joystick-container");
 
-/* Joystick Controls */
-#joystick-container {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    width: 100px;
-    height: 100px;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-}
+    joystickContainer.addEventListener("touchmove", function (event) {
+        let touch = event.touches[0];
+        let rect = joystickContainer.getBoundingClientRect();
+        let x = touch.clientX - rect.left - joystick.clientWidth / 2;
+        let y = touch.clientY - rect.top - joystick.clientHeight / 2;
 
-#joystick {
-    width: 50px;
-    height: 50px;
-    background: gray;
-    border-radius: 50%;
-    position: relative;
-    top: 25px;
-    left: 25px;
-}
+        joystick.style.transform = `translate(${x}px, ${y}px)`;
+    });
 
-/* A Button */
-#a-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    font-size: 1.5em;
-    background: red;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-}
+    joystickContainer.addEventListener("touchend", function () {
+        joystick.style.transform = `translate(25px, 25px)`;
+    });
+
+    // A Button Clicked
+    let aButton = document.getElementById("a-button");
+
+    aButton.addEventListener("click", function () {
+        alert("A Button Pressed!");
+    });
+});
